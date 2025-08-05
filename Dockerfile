@@ -29,4 +29,4 @@ EXPOSE ${PORT:-8501}
 HEALTHCHECK CMD curl --fail http://localhost:${PORT:-8501}/_stcore/health
 
 # 運行應用程式
-CMD streamlit run texas_holdem_enhanced_ui.py --server.port=${PORT:-8501} --server.address=0.0.0.0 --theme.base=dark
+CMD ["streamlit", "run", "texas_holdem_enhanced_ui.py", "--server.port=8501", "--server.address=0.0.0.0", "--theme.base=dark"]
