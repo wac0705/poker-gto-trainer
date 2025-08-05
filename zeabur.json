@@ -1,16 +1,13 @@
 {
   "name": "texas-holdem-gto-trainer",
-  "services": [
-    {
-      "name": "poker-gto-trainer",
-      "type": "docker",
-      "buildCommand": "docker build -t poker-gto-trainer .",
-      "dockerfile": "./Dockerfile",
-      "port": 8501,
-      "env": {
-        "STREAMLIT_SERVER_PORT": "8501",
-        "STREAMLIT_SERVER_ADDRESS": "0.0.0.0"
-      }
-    }
-  ]
+  "build": {
+    "use": "dockerfile"
+  },
+  "run": {
+    "command": "streamlit run texas_holdem_enhanced_ui.py --server.port=${PORT:-8501} --server.address=0.0.0.0 --theme.base=dark"
+  },
+  "env": {
+    "STREAMLIT_SERVER_PORT": "${PORT:-8501}",
+    "STREAMLIT_SERVER_ADDRESS": "0.0.0.0"
+  }
 }
