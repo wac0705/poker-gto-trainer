@@ -1,0 +1,13 @@
+{
+  "name": "texas-holdem-gto-trainer",
+  "build": {
+    "use": "dockerfile"
+  },
+  "run": {
+    "command": "streamlit run texas_holdem_enhanced_ui.py --server.port=${PORT:-8501} --server.address=0.0.0.0 --theme.base=dark"
+  },
+  "env": {
+    "STREAMLIT_SERVER_PORT": "${PORT:-8501}",
+    "STREAMLIT_SERVER_ADDRESS": "0.0.0.0"
+  }
+}
